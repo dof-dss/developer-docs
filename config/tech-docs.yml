@@ -4,7 +4,7 @@ host: docs.dss.finance-ni.gov.uk
 # Header-related options
 show_govuk_logo: false
 service_name: DSS Developer Docs
-service_link: https://docs.finance-ni.gov.uk
+service_link: /
 phase: Internal
 
 # Links to show on right-hand-side of header
