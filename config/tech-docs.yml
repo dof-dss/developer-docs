@@ -1,5 +1,5 @@
 # Host to use for canonical URL generation (without trailing slash)
-host: docs.dss.finance-ni.gov.uk
+host: nics-developer-docs.london.cloudapps.digital
 
 # Header-related options
 show_govuk_logo: false
