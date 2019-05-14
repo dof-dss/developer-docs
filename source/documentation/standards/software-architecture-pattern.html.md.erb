@@ -1,0 +1,125 @@
+---
+title: Select a software architecture pattern
+last_reviewed_on: 2019-05-19
+review_in: 6 months
+---
+
+# <%= current_page.data.title %>
+
+This guidance is derived from Software Architecture Patterns by Mark Richards published by O'Reilly.
+
+## Introduction
+
+Without a clear and well defined architecture most developers will resort to the de-facto standard traditional
+layered architecture pattern (also called the n-tier aarchitecture). Applications lacking a formal architecture
+are generally tightly coupled, difficult to change and have no clear vision or direction.
+
+Architecture patters help define the basic characteristics and behaviour of an application. Knowing the
+characteristics, strengths and weaknesses for each architecture pattern is necessary in order to choose the
+one that meets your specific business needs and goals.
+
+The most predominent pattern in use across the NICS has been the layered architecture pattern. However, going
+forward it is vitally important that a decision on which pattern to use is being made and that it is justified
+and formally recorded.
+
+Patterns can be evaluated against the following criteria:
+
+- Overall agility
+- Ease of deployment
+- Testability
+- Performance
+- Scalability
+- Ease of development
+
+## Layered architecture
+
+### Description
+
+Components are organised into horizontal layers, each performing a specific role within the application
+(e.g. presentation logic or business logic). Although this pattern does not specify the number of layers
+most layered architectures consist of four standard layers:
+
+- presentation
+- business
+- persistence
+- database
+
+Each layer in the architecture forms an abstraction around the work that needs to be done to satisfy a
+particular business request.
+
+One of the powerful features of this pattern is the *separation of concerns* among components. Components
+within a specific layer only deal with logic that pertains to that layer.
+
+### Key concepts
+
+In this pattern each of the layers is marked as being closed; a closed layer means that as a request moves
+from layer to layer it must go through the layer below it to get the next layer below that. Therefore the key
+concept in this pattern is known as *layers of isolation*.
+
+The layers of isolation concept means that changes made in one layer of the architecture generally don't
+impact or affect components in other layers. It also means that each layer is independent of the other
+layers, having little of no knowledge of the inner workings of the other layers.
+
+One important consideration in this pattern is in the arena of shared services. The closed nature of each
+layer would make it difficult to reuse components. Therefore it is often acceptable to introduce a *services*
+layer that can provide access to the deeper layers in the model.
+
+### Considerations
+
+The layered architecture pattern is a solid general-purpose pattern, making it a good starting point for
+most applications. This has been the de-facto pattern in use across the NICS up until this point (summer 2019).
+
+However, there are a couple of things to consider when choosing this pattern:
+
+1. The *architecture sinkhole anti-pattern*, where request flow through multiple layers with little or no
+logic performed in each layer; and
+
+2. the pattern lends itself to monolithic applications.
+
+### Analysis
+
+## Event-driven architecture
+
+### Key concepts
+
+### Considerations
+
+### Analysis
+
+## Microkernel architecture
+
+## Layered architecture
+
+### Description
+
+### Key concepts
+
+### Considerations
+
+### Analysis
+
+## Microservices architecture
+
+## Layered architecture
+
+### Description
+
+### Key concepts
+
+### Considerations
+
+### Analysis
+
+## Space-based architecture
+
+## Layered architecture
+
+### Description
+
+### Key concepts
+
+### Considerations
+
+### Analysis
+
+## Pattern analysis summary

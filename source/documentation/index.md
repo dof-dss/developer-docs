@@ -7,6 +7,7 @@ The following standards help you build high quality, secure and sustainable code
 - [document architecture decisions](documentation/standards/architecture-decisions)
 - [select a hosting environment](documentation/standards/hosting)
 - [choose programming languages](documentation/standards/programming-languages)
+- [select a software architecture pattern](documentation/standards/software-architecture-pattern)
 - [build a database (backing service)](documentation/standards/backing-service)
 - [create APIs](documentation/standards/api)
 - [provide a consistent user experience](documentation/standards/ux)
@@ -30,6 +31,8 @@ Find out how to:
 ## Manuals
 
 - programming style guide
+- using the NICS private cloud
+- using public cloud services
 
 ## NICS Technical Design Group
 
