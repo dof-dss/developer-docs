@@ -78,6 +78,50 @@ logic performed in each layer; and
 
 ### Analysis
 
+#### Overall agility
+
+Rating: Low
+
+It is very time consuming making changes to monolithic applications and tightly coupled applications.
+
+#### Ease of deployment
+
+Rating: Low
+
+Deployment can be an issue, particulary for larger applications. A change to a single component can
+require a redeployment of the entire application, resulting in deployments that need to be planned
+and scheduled often out of hours. Therefore it does not lend itself well to a continuous delivery
+pipeline.
+
+#### Testability
+
+Rating: High
+
+As components sit in particular layers other layers can be mocked or stubbed.
+
+#### Performance
+
+Rating: Low
+
+The inefficiencies of having to go through mulitple layers of the architecture to fulfill
+a business request means that generally speaking this pattern does not lend itself to high
+performance applications.
+
+#### Scalability
+
+Rating: Low
+
+This architecture can be scaled by splitting the layers into separate physical or virtual
+machines or replicating the entire application into nodes, but overall the granularity is
+too braod making it expensive to scale.
+
+#### Ease of development
+
+Rating: High
+
+This is a well-known pattern and is not overly complex to implement. It becomes a natural
+choice for most application development.
+
 ## Event-driven architecture
 
 ### Key concepts
@@ -123,3 +167,13 @@ logic performed in each layer; and
 ### Analysis
 
 ## Pattern analysis summary
+
+The following table summarises the relative strengths and weakness of each pattern.
+
+|Pattern  | Agility     | Ease of deplyoment | Testability  | Performance | Scalability | Ease of development |
+|-------- | ----------- | ------------------ | ------------ | ----------- | ----------- | ------------------- |
+| LAYERED | Low | Low | High | Low | Low | High |
+| EVENT-DRIVEN | High | High | Low | High | High | Low |
+| MICROKERNEL | High | High | High | High | Low | Low |
+| MICROSERVICES | High | High | High | Low | High | High |
+| SPACED-BASED | High | High | Low | High | High | Low |
