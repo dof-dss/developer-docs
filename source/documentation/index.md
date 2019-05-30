@@ -8,6 +8,7 @@ The following standards help you build high quality, secure and sustainable code
 - [select a hosting environment](documentation/standards/hosting)
 - [choose programming languages](documentation/standards/programming-languages)
 - [select a software architecture pattern](documentation/standards/software-architecture-pattern)
+- [create cloud native applications](documentation/standards/cloud-native-apps)
 - [build a database (backing service)](documentation/standards/backing-service)
 - [create APIs](documentation/standards/api)
 - [provide a consistent user experience](documentation/standards/ux)

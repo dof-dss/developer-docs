@@ -14,13 +14,18 @@ Without a clear and well defined architecture most developers will resort to the
 layered architecture pattern (also called the n-tier aarchitecture). Applications lacking a formal architecture
 are generally tightly coupled, difficult to change and have no clear vision or direction.
 
-Architecture patters help define the basic characteristics and behaviour of an application. Knowing the
+Architecture patterns help define the basic characteristics and behaviour of an application. Knowing the
 characteristics, strengths and weaknesses for each architecture pattern is necessary in order to choose the
 one that meets your specific business needs and goals.
 
-The most predominent pattern in use across the NICS has been the layered architecture pattern. However, going
-forward it is vitally important that a decision on which pattern to use is being made and that it is justified
-and formally recorded.
+The most predominent pattern in use across the NICS has been the *layered architecture* pattern.
+
+The current industry trend is to move towards a *microservices architecture* pattern. This pattern
+facilitates a high velocity continuous development approach where small features can be released quickly
+and frequently.
+
+However, going forward, it is vitally important that a decision on which pattern to use is being made and
+that it is justified and formally recorded.
 
 Patterns can be evaluated against the following criteria:
 
@@ -124,15 +129,76 @@ choice for most application development.
 
 ## Event-driven architecture
 
-### Key concepts
+### Description
+
+The event-driven architecture pattern is a popular distributed asynchronous architecture pattern used to
+produce highly scalable applications. The event-driven architecture is made up of highly decoupled,
+single-purpose event processing components that asynchronously receive and process events. There are two
+main topologies in this pattern:
+
+#### Mediator topology
+
+The mediator topology is useful for events that have multiple steps and require some level of orchestration
+to process the event. The orchestration will decide which steps need to be done serially and which steps
+can be done in parallel.
+
+#### Broker topology
+
+The broker topology is different from the mediator topology in that there is no central event mediator; rather
+the message flow is distributed across the event processor components in a chain-linke fashion through a
+lightweight message broker (e.g. Azure Service Bus).
 
 ### Considerations
 
+The event-driven architecture is a relatively complex pattern to implement because of its asynchronous
+distributed nature. Therefore you must address issues such as lack of responsiveness, remote process availability
+and broker reconnection logic in the event of a failure. It is also very difficult to maint a transactional
+unit of work across event processor components.
+
 ### Analysis
 
-## Microkernel architecture
+#### Overall agility
 
-## Layered architecture
+Rating: High
+
+Since event processor components are single-purpose and completely decoupled from each other changes are
+generally isolated to one or a few event processors and can be made quickly without impacting other
+components.
+
+#### Ease of deployment
+
+Rating: High
+
+This pattern is relatively easy to deploy because of the decoupled nature of the event processor components.
+
+#### Testability
+
+Rating: Low
+
+While individual unit testing is not overly difficult, it does require some type of specialised testing tool
+to generate events. Testing is also complicated by the asynchronous nature of this pattern.
+
+#### Performance
+
+Rating: High
+
+This pattern achieves performance through its asynchronous capabilities, i.e. the ability to perform
+decoupled, parallel asynchronous operations.
+
+#### Scalability
+
+Rating: High
+
+Each event processor can be scaled separately allowing for fine-grained scalability.
+
+#### Ease of development
+
+Rating: Low
+
+Development can be complicated because of the asynchronous nature of the pattern and the need
+for complex error handling conditions within the code.
+
+## Microkernel architecture
 
 ### Description
 
@@ -144,8 +210,6 @@ choice for most application development.
 
 ## Microservices architecture
 
-## Layered architecture
-
 ### Description
 
 ### Key concepts
@@ -155,8 +219,6 @@ choice for most application development.
 ### Analysis
 
 ## Space-based architecture
-
-## Layered architecture
 
 ### Description
 

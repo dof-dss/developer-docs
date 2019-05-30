@@ -1,0 +1,37 @@
+---
+title: Create cloud native apps
+last_reviewed_on: 2019-05-30
+review_in: 6 months
+---
+
+# <%= current_page.data.title %>
+
+The apps you build may be deployed on DSS infrastructure or in a public cloud.
+
+In order for applications to work effectively in a cloud environment there are a number of principles
+that must be followed.
+
+The portability of our applications (i.e. the ability to move them easily from one
+environment to another) is dependent up us following these principles no matter what the initial target
+environment might be.
+
+##12-factor application principles
+
+All applications must follow these practices to work in modern cloud basesd enviroments that support
+features such as auto-scaling and automatic fail-over. The [12factor.net website](https://12factor.net)
+provides much more detail on each of the practices summarised below.
+
+| Principle | Meaning |
+| --------- | ------- |
+| One codebase many deploys | Each of your apps needs is own verion-controlled repository |
+| Isolate dependencies | All required dependencies must be vendored into your software system |
+| Store your configuration in the environment | Ensure you separate the storage of your code and configuration |
+| Backing services | All your backing services should be loosely coupled to your code |
+| Strictly separate build, release and run stages | There should be a strict separation between building, releasing and running the code |
+| Stateless processes | Build stateless processes where intermediate data is stored in your backing services and not in running code |
+| Port binding | Your application should interface to the world via an API |
+| Concurrency | Ensure all your processes are running separately so your application can scale easily |
+| Disposability | Your should be able to rapidly release new code and applications should be able to start back up fast and cleanly following shut down |
+| Development/Production parity | Applications should be rapidly deployed from their development environment to production |
+| Logs | Maintain and archive log files so you have visibility of how our application works over time |
+| Administrative processes | Rn one-off administrative processes in your production environment |

@@ -1,15 +1,85 @@
 ---
 title: Store source code
-last_reviewed_on: 2019-05-19
+last_reviewed_on: 2019-05-29
 review_in: 6 months
 ---
 
 # <%= current_page.data.title %>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+All code must be stored in a version control system. This allows you to:
+
+- revert to an earlier version if required
+- record changes and document why you made them
+- work on changes in parallel as a team before merging them together
 
 ## Choosing a repository
 
+### Locally hosted repositories
+
+Until now almost all of the code developed by the NICS has been stored in locally hosted
+version control systems such as GitLab or Microsoft Team Foundation Server (TFS). While this
+works well for internal network deployments it does not work for the deployment of applications
+hosted in other networks or in public cloud environments.
+
+### Externally hosted repositories
+
+#### Public repositories
+
+Unless there is a compelling reason not to, source code should be made publically available. However,
+it is important that certain sensitive information is not published in a publically accessible repository
+(see the [Best Practice Guidance](#best-practice-guidance) below).
+
+#### Private repositories
+
+Private repositories should be used only where the project is of an extremely sensitive nature,
+for example the code would reveal methods for detecting crime or terrorism. Code which reveals
+unreleased policy should also be stored in a private repository.
+
+## Best practice guidance
+
+The following guiance should be followed when using a publically accessible repository:
+
+- Use environment variables to inject things like service account credentials, database credentials
+and API keys. These values should not be stored in code or in the repository but must only reside
+in a protected area in the environment in which they are required.
+
+- Use code reviews to check for the presence of sensitive data
+
+- Store credentials in a central, secure and encrypted password store
+
+In fact, this approach should be followed regardless of whether or not the repository is publically available;
+it is a requirement for developing *cloud native* applications.
+
 ## Adopting a branching and merging strategy
 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Making commits
+
+Something in here about [pull requests](https://help.github.com/en/articles/creating-a-pull-request)
+
+## Writing commit messages
+
+Follow the [GOV.UK style guide on commit messages](https://github.com/alphagov/styleguides/blob/master/git.md).
+
 ## Integrating with a CI/CD pipeline
+
+The design, build and test of software in short cycles is baked in to the Agile approach to software development.
+When developers commit code to a version control system, a new version of the application should be built in
+the appropriate environment for manual and automated testing. This is possible with tools such as Jenkins, TeamCity,
+Travis and Azure DevOps. Technical leads will normally build a CI/CD pipeline for new projects.
+
+## Using GitHub
+
+DSS uses GitHub as its publically accessible code repository.
+
+Place new new repositories for DSS services in the [dss-dof](https://github.com/dof-dss) organisation on GitHub.
+
+You can use your personal GitHub account to access dof-dss. Ask your GitHub administrator to invite you.
+
+To secure your GitHub respository, make sure you:
+
+- configure two-factor authentical for your account
+- ensure Git repositories are backed up to another location
+- have considered encrypting you repository contents
+- have considered [protecting your master branch](https://help.github.com/articles/about-protected-branches) to prevend changes being committed without a review
