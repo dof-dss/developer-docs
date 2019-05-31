@@ -31,9 +31,10 @@ Find out how to:
 
 ## Manuals
 
-- programming style guide
-- using the NICS private cloud
-- using public cloud services
+- Programming Style Guide
+- Security Operating Procedures
+- Using the NICS private cloud
+- Using public cloud services
 
 ## NICS Technical Design Group
 
