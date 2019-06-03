@@ -1,9 +1,121 @@
 ---
 title: Create APIs
-last_reviewed_on: 2019-05-19
+last_reviewed_on: 2019-06-03
 review_in: 6 months
 ---
 
 # <%= current_page.data.title %>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+DSS follows the GDS [API technical and data standards][1].
+
+The following sections describe DSS specific guidance to be followed.
+
+## Use of REST
+
+### Resources
+
+Resources should be nouns not verbs and should be coarse grained and not fine grained. There are fundamentally
+two types of resources:
+
+- collections e.g. `/applications`
+- instances e.g. `/applications/a1b2c3`
+
+### Behaviour
+
+REST behaviour is based on the HTTP specification:
+
+- GET
+- PUT
+- POST
+- DELETE
+- HEAD
+
+While GET relates directly to a *read* operation and DELETE relates directly to a *delete* operation, the PUT
+ verb is normally used for *update* while the POST verb is normally used for *insert*.
+
+## Base URL
+
+For citizen based services the base URL is:
+
+`https://api.nidirect.gov.uk`
+
+## Media types
+
+Media types consist of a format specification and parsing rules
+
+- **Request**: `Accept` header
+- **Response**: `Content-type` header
+
+Example media types are:
+
+- application/json
+- application/xml
+- text/html
+- application/pdf
+
+The DSS standard media type is `application/json`.
+
+## Versioning
+
+APIs should be versioned using the following standard:
+
+e.g. `https://api.nidirect.gov.uk/v1`
+
+## Security
+
+## JSON responses
+
+- Every accessbile resource must have a unique URL:
+
+- JSON properties should use camelCase .e.g. accountName
+
+- Use ISO 8601 standard for date/time timestamps and use UTC
+
+```
+{
+  "href": "https://api.nidirect.gov.uk/v1/applications/a1b2c3"
+  "applicationType": "Driving Licence"
+  ...
+  "createdTimestamp":"2019-06-01T08:00:123Z"
+}
+```
+
+### Content negotiation
+
+- the format of the contect return should be base on the `Accept` header
+- header values are comma delimited in order of preference
+
+`GET /applications/a1b2c3`
+
+`Accept: application/json, text/plain`
+
+### Linked content (parents and children)
+
+Where the resource requested is either the parent of another object or the child or a parent object we refer
+to the parent or child using an instance reference or `href`.
+
+```
+GET /applications/a1b2c3
+
+200 OK
+{
+  "href": "https://api.nidirect.gov.uk/v1/applications/a1b2c3"
+  "applicationType": "Driving Licence"
+  "applicant": {
+    "href": "https://api.nidirect.gov.uk/v1/applicants/x1y2z3"
+  }
+  ...
+  "createdTimestamp":"2019-06-01T08:00:123Z"
+}
+```
+
+### Pagination
+
+Use query parameters `offset` and `limit`.
+
+### Handling errors
+
+Return a custom payload along with the standard error code.
+
+
+[1]: https://www.gov.uk/guidance/gds-api-technical-and-data-standards
