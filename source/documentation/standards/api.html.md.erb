@@ -37,7 +37,7 @@ While GET relates directly to a *read* operation and DELETE relates directly to 
 
 For citizen based services the base URL is:
 
-`https://api.nidirect.gov.uk`
+`https://api.servicename.nidirect.gov.uk`
 
 ## Media types
 
@@ -59,7 +59,7 @@ The DSS standard media type is `application/json`.
 
 APIs should be versioned using the following standard:
 
-e.g. `https://api.nidirect.gov.uk/v1`
+e.g. `https://api.servicename.nidirect.gov.uk/v1`
 
 ## Security
 
@@ -73,8 +73,8 @@ e.g. `https://api.nidirect.gov.uk/v1`
 
 ```
 {
-  "href": "https://api.nidirect.gov.uk/v1/applications/a1b2c3"
-  "applicationType": "Driving Licence"
+  "href": "https://api.servicename.nidirect.gov.uk/v1/applications/a1b2c3"
+  "applicationType": "basic"
   ...
   "createdTimestamp":"2019-06-01T08:00:123Z"
 }
@@ -99,10 +99,10 @@ GET /applications/a1b2c3
 
 200 OK
 {
-  "href": "https://api.nidirect.gov.uk/v1/applications/a1b2c3"
-  "applicationType": "Driving Licence"
+  "href": "https://api.servicename.nidirect.gov.uk/v1/applications/a1b2c3"
+  "applicationType": "basic"
   "applicant": {
-    "href": "https://api.nidirect.gov.uk/v1/applicants/x1y2z3"
+    "href": "https://api.servicename.nidirect.gov.uk/v1/applicants/x1y2z3"
   }
   ...
   "createdTimestamp":"2019-06-01T08:00:123Z"
