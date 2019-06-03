@@ -29,10 +29,13 @@ Find out how to:
 - write good commits
 - use configuration management
 
-## Manuals
+## Guides
 
 - Programming Style Guide
-- Security Operating Procedures
+- [Security Operating Procedures][1]
+
+## Manuals
+
 - Using the NICS private cloud
 - Using public cloud services
 
@@ -45,3 +48,5 @@ from DSS (Department of Finance) and other NICS departments.
 ### Contact TDG
 
 Contact TDG by email at **email-address** in here or using the **Slack channel**.
+
+[1]: https://dss-syops.london.cloudapps.digital
