@@ -9,7 +9,10 @@ phase: Internal
 
 # Links to show on right-hand-side of header
 header_links:
-  Enterprise Architecture: https://nics-ea.london.cloudapps.digital
+  Approach: https://dss-dev-approach.london.cloudapps.digital
+  Architecture: https://nics-ea.london.cloudapps.digital
+  SyOPS: https://dss-syops.london.cloudapps.digital
+  Support: https://dss-support-docs.london.cloudapps.digital
   GitHub: https://github.com/dof-dss/developer-docs.git
 
 # Enables search functionality. This indexes pages only and is not recommended for single-page sites.
